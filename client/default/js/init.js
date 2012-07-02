@@ -81,7 +81,11 @@ function errorCallback(e) {
  * Call server side function to send a push notification message.
  */
 function broadcastMessage(){
-  $fh.act({act:'pushMessages', req:{ts: new Date().getTime()}}, function(res){
-    result.innerHTML += "Message sent";
+  $fh.act({
+    act:'pushMessages', 
+    req:{
+      ts: new Date().getTime()}}, 
+      function(res){
+        result.innerHTML += "Message sent";
   })
 }
