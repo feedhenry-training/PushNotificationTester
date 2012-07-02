@@ -17,7 +17,14 @@ function registerUA(){
    * Urbanairship API supports tagging a device. 
    * To do that, you can pass an extra parameter called "data" with the content specified in http://urbanairship.com/docs/push.html#registration
    */
-  var res = $fh.push({'act':'register', 'type':'dev', 'params':{'id':deviceId, 'platform':platform}});
+  var res = $fh.push({
+    'act':'register', 
+    'type':'dev', 
+    'params':{
+       'id':deviceId, 
+       'platform':platform
+    }
+  });
   return res;
 }
 
