@@ -73,7 +73,7 @@ function successCallback(e) {
  * Error callback function is the app failed to register push notification.
  */
 function errorCallback(e) {
-    alert(e);
+    console.log(e);
     result.innerHTML='Error during registration: ' + e;
     registerButton.disabled=false;
 }
