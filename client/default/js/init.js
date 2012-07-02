@@ -46,7 +46,8 @@ function registerAPN() {
           port:bb_push_port, 
           appId:bb_push_appId, 
           serverUrl: bb_push_serverUrl
-        }
+        },
+        apid: '1234'
       }
     }, successCallback, errorCallback);
 }
