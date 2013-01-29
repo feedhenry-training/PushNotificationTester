@@ -1,7 +1,10 @@
 /**
  * Register a device to Urbanairship
  */
-function registerUA(){
+exports.registerUA = registerUA();
+exports.pushMessages = pushMessages();
+
+function registerUA(params, callback){
   var deviceId, platfrom;
   if($params.deviceToken){
     deviceId = $params.deviceToken;
@@ -28,7 +31,7 @@ function registerUA(){
   return res;
 }
 
-function pushMessages(){
+function pushMessages(params, callback){
   var message = "hello from FH";
   /**
    * Broadcast a message to all the devices. 
@@ -39,5 +42,5 @@ function pushMessages(){
   var blackberry_message = {'blackberry':{'content-type':'text/plain', 'body':message}};
   var res_ios = $fh.push({'act':'broadcast', 'type':'dev', 'params':ios_message});
   var res_android = $fh.push({'act':'broadcast', 'type':'dev', 'params':android_message});
-  return {'result': 'ok'};
+  return callback(null,{'result': 'ok'});
 }
