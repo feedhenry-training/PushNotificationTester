@@ -1,8 +1,7 @@
 /**
  * Register a device to Urbanairship
  */
-exports.registerUA = registerUA();
-exports.pushMessages = pushMessages();
+
 
 function registerUA(params, callback){
   var deviceId, platfrom;
@@ -44,3 +43,6 @@ function pushMessages(params, callback){
   var res_android = $fh.push({'act':'broadcast', 'type':'dev', 'params':android_message});
   return callback(null,{'result': 'ok'});
 }
+
+exports.registerUA = registerUA();
+exports.pushMessages = pushMessages();
