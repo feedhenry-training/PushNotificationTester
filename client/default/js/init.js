@@ -60,6 +60,7 @@ function successCallback(e) {
   result.innerHTML="Device registered. Device token:<br>" + (e.deviceToken || e.devicePIN || e.apid) + '.<br><br>';
   result.innerHTML += "Now registering with UrbanAirship...<br>";
   e.ts = new Date().getTime();
+  
   $fh.act({act:'registerUA', req:e}, function(res){
     if(res.result == 'ok'){
       result.innerHTML += "Registration Finishied.<br>";
