@@ -28,7 +28,7 @@ function registerUA(params, callback){
        'platform':platform
     }
   });
-  return res;
+  return callback(null, res);
 }
 
 function pushMessages(params, callback){
