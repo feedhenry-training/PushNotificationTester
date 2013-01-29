@@ -6,14 +6,14 @@ exports.pushMessages = pushMessages();
 
 function registerUA(params, callback){
   var deviceId, platfrom;
-  if($params.deviceToken){
-    deviceId = $params.deviceToken;
+  if(params.deviceToken){
+    deviceId = params.deviceToken;
     platform = "ios";
-  } else if($params.devicePIN){
-    deviceId = $params.devicePIN;
+  } else if(params.devicePIN){
+    deviceId = params.devicePIN;
     platform = "blackberry";
-  } else if($params.apid){
-    deviceId = $params.apid;
+  } else if(params.apid){
+    deviceId = params.apid;
     platform = "android";
   }
   /**
