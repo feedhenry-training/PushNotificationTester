@@ -4,7 +4,7 @@
 
 
 function registerUA(params, callback){
-  return callback(null, {test: 'test'});
+  //return callback(null, {test: 'test'});
   var deviceId, platfrom;
   if(params.deviceToken){
     deviceId = params.deviceToken;
