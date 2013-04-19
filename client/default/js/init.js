@@ -39,7 +39,17 @@ function registerAPN() {
     /**
      *  The "params" can be empty object if the app is not going to run on Blackberry
      */
-    $fh.push({act:'register', params:{bb:{port:bb_push_port, appId:bb_push_appId, serverUrl: bb_push_serverUrl}}}, successCallback, errorCallback);
+    $fh.push({
+      act:'register', 
+      params:{
+        //bb:{
+        //  port:bb_push_port, 
+        //  appId:bb_push_appId, 
+        //  serverUrl: bb_push_serverUrl
+        //},
+        //apid: '1234'
+      }
+    }, successCallback, errorCallback);
 }
 
 /**
@@ -50,6 +60,7 @@ function successCallback(e) {
   result.innerHTML="Device registered. Device token:<br>" + (e.deviceToken || e.devicePIN || e.apid) + '.<br><br>';
   result.innerHTML += "Now registering with UrbanAirship...<br>";
   e.ts = new Date().getTime();
+  
   $fh.act({act:'registerUA', req:e}, function(res){
     if(res.result == 'ok'){
       result.innerHTML += "Registration Finishied.<br>";
@@ -63,7 +74,7 @@ function successCallback(e) {
  * Error callback function is the app failed to register push notification.
  */
 function errorCallback(e) {
-    alert(e);
+    console.log(e);
     result.innerHTML='Error during registration: ' + e;
     registerButton.disabled=false;
 }
@@ -72,7 +83,11 @@ function errorCallback(e) {
  * Call server side function to send a push notification message.
  */
 function broadcastMessage(){
-  $fh.act({act:'pushMessages', req:{ts: new Date().getTime()}}, function(res){
-    result.innerHTML += "Message sent";
+  $fh.act({
+    act:'pushMessages', 
+    req:{
+      ts: new Date().getTime()}}, 
+      function(res){
+        result.innerHTML += "Message sent";
   })
 }
