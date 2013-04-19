@@ -45,5 +45,5 @@ function pushMessages(params, callback){
   return callback(null,{'result': 'ok'});
 }
 
-exports.registerUA = registerUA();
-exports.pushMessages = pushMessages();
+exports.registerUA = registerUA;
+exports.pushMessages = pushMessages;
