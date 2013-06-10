@@ -40,7 +40,7 @@ function pushMessages(params, callback){
   var ios_message = {'aps':{'alert':message}};
   var android_message = {'android':{'alert':message}};
   var blackberry_message = {'blackberry':{'content-type':'text/plain', 'body':message}};
-  var res_ios = $fh.push({'act':'broadcast', 'type':'dev', 'params':ios_message});
+  var res_ios = $fh.push({'act':'broadcast', 'type':'prod', 'params':ios_message});
   var res_android = $fh.push({'act':'broadcast', 'type':'dev', 'params':android_message});
   return callback(null,{'result': 'ok'});
 }
